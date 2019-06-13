@@ -1,0 +1,48 @@
+*{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.app{
+  width: 100%;
+  max-width: 1200px;
+  background-color: darkgreen;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.friend-list{
+  display: flex;
+  flex-flow: row wrap;
+  width: 90%;
+  max-width: 1200px;
+  justify-content: center;
+}
+
+.friend-card{
+  padding: 10px 10px 10px 10px;
+  margin: 50px 30px;
+  width: 300px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: darkgoldenrod;
+  button{
+    margin: 10px 0px;
+  }
+}
+
+.form{
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  button{
+    width: 75px;
+  }
+}
