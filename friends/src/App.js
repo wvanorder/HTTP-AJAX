@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import axios from 'axios';
 import {Route} from 'react-router-dom';
 import AddFriendForm from './components/form';
@@ -94,19 +94,22 @@ export default class App extends Component {
     }
     
   };
-
+    //Allows us to change friend info based on data in the input
   updateFriend = e => {
     var newFriend= {
       id: parseInt(e.target.id),
-      name: this.state.friend,
-      age: this.state.age,
-      email: this.state.friendEmail,
+      name: this.state.friend === '' ? this.state.friends[e.target.id - 1].name : this.state.friend,
+      age: this.state.age === '' ? this.state.friends[e.target.id - 1].age : this.state.age,
+      email: this.state.friendEmail === '' ? this.state.friends[e.target.id - 1].email : this.state.friendEmail,
     };
     axios
     .put(`http://localhost:5000/friends/${e.target.id}`, newFriend)
     .then(response => {
       this.setState({
         friends: response.data,
+        friend: '',
+        age: '',
+        friendEmail: '',
       });
       console.log(this.state.friends);
     })
@@ -118,7 +121,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
           <div className="friend-list">
             {this.state.friends.map(friendy => {
                 return <Friend key={friendy.id} id={friendy.id} friend={friendy} updateFriend={this.updateFriend}/>

@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import '../App.scss';
 
 const AddFriendForm = props => {
     return(
-        <div>
+        <div className="form">
             <form>
                 <input placeholder="Friend Name"
                 onChange={props.friendInput}
